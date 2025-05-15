@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Todo Manager</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="text-center mb-0">Daily Todo Manager</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Combined Form -->
+                        <form id="todoForm" class="mb-4">
+                            <h4 class="form-section-title">Personal Information</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="nameInput" placeholder="Full Name" required>
+                                        <label for="nameInput"><i class="fas fa-user me-2"></i>Full Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="citizenshipInput" placeholder="Citizenship No." required>
+                                        <label for="citizenshipInput"><i class="fas fa-id-card me-2"></i>Citizenship No.</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="phoneInput" placeholder="Phone No." required>
+                                        <label for="phoneInput"><i class="fas fa-phone me-2"></i>Phone No.</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="addressInput" placeholder="Address" required>
+                                        <label for="addressInput"><i class="fas fa-map-marker-alt me-2"></i>Address</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="form-section-title mt-4">Task Information</h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="todoInput" placeholder="Enter your task" required>
+                                        <label for="todoInput"><i class="fas fa-tasks me-2"></i>Enter your task</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input type="datetime-local" class="form-control" id="todoDateTime" required>
+                                        <label for="todoDateTime"><i class="fas fa-calendar-alt me-2"></i>Date & Time</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary w-100 h-100">
+                                        <i class="fas fa-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="btn-group w-100" role="group" id="statusGroup">
+                                        <input type="radio" class="btn-check" name="status" id="processing" value="Processing" checked>
+                                        <label class="btn btn-outline-warning" for="processing">Processing</label>
+                                        
+                                        <input type="radio" class="btn-check" name="status" id="incompleted" value="Incompleted">
+                                        <label class="btn btn-outline-danger" for="incompleted">Incompleted</label>
+                                        
+                                        <input type="radio" class="btn-check" name="status" id="completed" value="Completed">
+                                        <label class="btn btn-outline-success" for="completed">Completed</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Todo List -->
+                        <div class="todo-list">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="form-section-title mb-0">Your Tasks</h4>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-outline-primary" id="selectAllBtn">
+                                        <i class="fas fa-check-square me-1"></i>Select All
+                                    </button>
+                                    <button type="button" class="btn btn-primary" id="printSelectedBtn">
+                                        <i class="fas fa-print me-1"></i>Print
+                                    </button>
+                                    <button type="button" class="btn btn-success" id="downloadPdfBtn">
+                                        <i class="fas fa-file-pdf me-1"></i>Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="todoList" class="list-group">
+                                <!-- Todo items will be added here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html> 
